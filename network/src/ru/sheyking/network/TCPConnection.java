@@ -12,10 +12,16 @@ public class TCPConnection {
     private final BufferedReader in;
     private final BufferedWriter out;
 
+    /*
+    Создаёт сокет по параметрам ip адреса и номеру порта
+     */
     public TCPConnection(TCPConnectionListener eventListener, String ipAddr, int port) throws IOException {
         this(eventListener, new Socket(ipAddr, port));
     }
 
+    /*
+    Принимает готовый сокет
+     */
     public TCPConnection(TCPConnectionListener eventListener, Socket socket) throws IOException {
         this.eventListener = eventListener;
         this.socket = socket;
